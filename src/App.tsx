@@ -82,9 +82,9 @@ const App = () => {
           <div className="flex gap-5 flex-col md:flex-row">
             <div className="max-w-full md:max-w-sm">
               <WeatherData {...weatherData} />
-              <Carousel localTime={weatherData?.location.localtime} days={weatherData?.forecast?.forecastday} />
+              <Carousel localTime={weatherData.location.localtime} days={weatherData.forecast.forecastday} />
             </div>
-            <Days days={weatherData?.forecast.forecastday} />
+            <Days days={weatherData.forecast.forecastday} />
           </div>
           {Object.keys(localStorage).length !== 0 && <FavouriteCities {...{ setCity, clearLocalStorage, removeFavouriteCity }} />}
         </div>
