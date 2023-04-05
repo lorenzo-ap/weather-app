@@ -5,7 +5,7 @@ const CurrentWeather = (props: APIResponseInterface) => {
   const { location, current } = props;
 
   return (
-    <div className="mt-3 mb-8 px-2 sm:px-32 md:px-8 flex justify-between">
+    <div className="mt-3 mb-8 xxs:px-5 xs:px-10 sm:px-16 md:px-8 flex justify-between">
       <div className="text-left">
         <h1 className="mb-5 text-2xl">{location.name}</h1>
         <div className="text-8xl font-bold">{Math.round(current.temp_c || 0)}°</div>
