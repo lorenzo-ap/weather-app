@@ -7,16 +7,16 @@ const CurrentWeather = (props: APIResponseInterface) => {
   return (
     <div className="mt-3 mb-8 px-2 sm:px-32 md:px-8 flex justify-between">
       <div className="text-left">
-        <h2 className="mb-5 text-xl ps-2">{location.name}</h2>
+        <h1 className="mb-5 text-2xl">{location.name}</h1>
         <div className="text-8xl font-bold">{Math.round(current.temp_c || 0)}°</div>
       </div>
       <div className="flex flex-col justify-between">
         <div className="text-right text-sm">
-          {current.condition.text}
+          <span>{current.condition.text}</span>
           <img className="ms-auto mt-1" src={current.condition.icon} alt={current.condition.text} />
         </div>
         <div>
-          <div className="flex justify-center items-center gap-1">
+          <div className="flex justify-end items-center gap-1">
             <BiWind size="20" />
             <div className="flex items-baseline gap-0.5">
               <span className="font-bold text-xl">{current.wind_kph}</span>

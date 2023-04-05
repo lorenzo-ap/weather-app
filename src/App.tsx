@@ -32,7 +32,7 @@ const App = () => {
     <div className="p-5 pt-5 shadow-2xl max-w-3xl w-full md:rounded-3xl md:w-auto bg-[#0b131e]">
       <SearchCity {...{ weatherData, setWeatherData, setRenderPage }} />
       {weatherData ? (
-        <>
+        <main>
           <div className="flex gap-5 flex-col md:flex-row">
             <div className="max-w-full md:max-w-sm">
               <CurrentWeather {...weatherData} />
@@ -40,8 +40,8 @@ const App = () => {
             </div>
             <SevenDaysForecast days={weatherData.forecast.forecastday} />
           </div>
-          {Object.keys(localStorage).length !== 0 && <FavouriteCities {...{ setRenderPage, setWeatherData }} />}
-        </>
+          {Object.keys(localStorage).length !== 0 && <FavouriteCities {...{ setWeatherData, setRenderPage }} />}
+        </main>
       ) : (
         <div className="text-center">The city was not found</div>
       )}

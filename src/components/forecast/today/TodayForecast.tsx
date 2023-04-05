@@ -15,8 +15,8 @@ const TodayForecast = (props: TodayForecastProps) => {
 
   return (
     <div className="px-5 py-4 rounded-xl text-center bg-gradient-to-r from-[#1f2a3a] to-[#1d2736]">
-      <h3 className="text-left mb-2 text-lg">Today's forecast</h3>
-      <div className="flex overflow-x-scroll w-full cursor-grab gap-4 pt-2 pb-3" {...events} ref={ref}>
+      <h2 className="text-left mb-2 text-lg">Today's forecast</h2>
+      <div className="flex overflow-x-scroll w-full cursor-grab gap-5 pt-2 pb-3" {...events} ref={ref}>
         {forecastHours?.map((hour) => (
           <TodayForecastHour key={hour.time} {...{ ...hour, localTime }} />
         ))}

@@ -33,7 +33,7 @@ const SearchCity = (props: CitiesProps) => {
   };
 
   return (
-    <div className="flex justify-between items-center mb-5 gap-5">
+    <header className="flex justify-between items-center mb-5 gap-5">
       <div className="flex justify-between items-center shadow-md rounded-3xl p-1 w-full bg-gradient-to-r from-[#1f2a3a] to-[#1d2736]">
         <input
           onKeyDown={onEnterKeyPress}
@@ -52,7 +52,7 @@ const SearchCity = (props: CitiesProps) => {
           {localStorage.getItem(weatherData.location.name || "") ? <AiFillHeart size="32" /> : <AiOutlineHeart size="32" />}
         </button>
       )}
-    </div>
+    </header>
   );
 };
 
