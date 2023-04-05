@@ -16,8 +16,8 @@ const DayForecast = (props: DayProps) => {
   };
 
   return (
-    <div className="flex items-center gap-3 justify-between">
-      <div className="w-24">{moment(new Date(date)).format(moment(new Date(date)).isSame(moment(new Date()), "day") ? "[Today]" : "dddd")}</div>
+    <div className="flex items-center gap-6">
+      <div className="w-20">{moment(new Date(date)).format(moment(new Date(date)).isSame(moment(new Date()), "day") ? "[Today]" : "dddd")}</div>
       <img className="w-10" src={day.condition.icon} alt={day.condition.text} />
       <div className="flex justify-between w-32">
         <div className="flex items-center gap-1 text-lg">
