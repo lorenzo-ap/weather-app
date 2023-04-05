@@ -1,7 +1,7 @@
-import { HourProps } from "interface/Interface";
+import { TodayForecastHourProps } from "interface/Interface";
 import moment from "moment";
 
-const CarouselHour = (props: HourProps) => {
+const CarouselHour = (props: TodayForecastHourProps) => {
   const { time, temp_c, condition, localTime } = props;
 
   return (

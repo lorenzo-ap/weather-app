@@ -2,7 +2,7 @@ import { DayProps } from "interface/Interface";
 import moment from "moment";
 import { BsDropletFill, BsDropletHalf, BsDroplet, BsThermometerHalf } from "react-icons/bs";
 
-const Day = (props: DayProps) => {
+const DayForecast = (props: DayProps) => {
   const { date, day } = props;
 
   const checkHumidity = (humidity: number) => {
@@ -31,4 +31,4 @@ const Day = (props: DayProps) => {
   );
 };
 
-export default Day;
+export default DayForecast;

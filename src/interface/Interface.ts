@@ -1,6 +1,8 @@
+import { Dispatch, SetStateAction } from "react";
+
 export interface DayProps {
   date: string;
-  hour: HourProps[];
+  hour: TodayForecastHourProps[];
   day: {
     avgtemp_c: number;
     avghumidity: number;
@@ -8,7 +10,8 @@ export interface DayProps {
   };
 }
 
-export interface HourProps {
+
+export interface TodayForecastHourProps {
   time: string;
   temp_c: number;
   condition: ConditionInterface;
@@ -30,24 +33,15 @@ export interface APIResponseInterface {
   };
 }
 
-export interface CarouselProps {
+export interface TodayForecastProps {
   days?: DayProps[];
   localTime: string;
 }
 
-export interface SearchCitiesProps {
+export interface CitiesProps {
   weatherData?: APIResponseInterface;
-  onKeyDown: React.KeyboardEventHandler<HTMLInputElement>;
-  onInputChange: React.ChangeEventHandler<HTMLInputElement>;
-  inputValue: string;
-  onAddToFavouriteButtonClick: React.MouseEventHandler<HTMLButtonElement>;
-  searchCity: React.MouseEventHandler<HTMLButtonElement>;
-}
-
-export interface FavouriteCitiesProps {
-  setCity: any;
-  clearLocalStorage: React.MouseEventHandler<HTMLButtonElement>;
-  removeFavouriteCity: React.MouseEventHandler<HTMLButtonElement>;
+  setRenderPage: Dispatch<React.SetStateAction<boolean>>;
+  setWeatherData: Dispatch<SetStateAction<APIResponseInterface | undefined>>;
 }
 
 interface ConditionInterface {

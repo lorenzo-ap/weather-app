@@ -1,7 +1,7 @@
 import { APIResponseInterface } from "interface/Interface";
 import { BiWind } from "react-icons/bi";
 
-const WeatherData = (props: APIResponseInterface) => {
+const CurrentWeather = (props: APIResponseInterface) => {
   const { location, current } = props;
 
   return (
@@ -29,4 +29,4 @@ const WeatherData = (props: APIResponseInterface) => {
   );
 };
 
-export default WeatherData;
+export default CurrentWeather;
