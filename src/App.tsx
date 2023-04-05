@@ -29,7 +29,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="p-5 pt-5 shadow-2xl max-w-3xl w-full md:rounded-3xl md:w-auto bg-[#0b131e]">
+    <div className="py-5 px-5 xs:px-12 sm:px-24 md:px-5 shadow-2xl max-w-3xl w-full min-h-screen md:min-h-fit md:rounded-3xl md:w-auto bg-[#0b131e]">
       <SearchCity {...{ weatherData, setWeatherData, setRenderPage }} />
       {weatherData ? (
         <main>

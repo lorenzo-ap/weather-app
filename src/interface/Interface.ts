@@ -10,7 +10,6 @@ export interface DayProps {
   };
 }
 
-
 export interface TodayForecastHourProps {
   time: string;
   temp_c: number;
