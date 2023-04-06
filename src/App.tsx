@@ -5,7 +5,7 @@ import SearchCity from "components/SearchCity/SearchCity";
 import CurrentWeather from "components/CurrentWeather/CurrentWeather";
 import FavouriteCities from "components/FavouriteCities/FavouriteCities";
 import TodayForecast from "components/forecast/today/TodayForecast";
-import SevenDaysForecast from "components/forecast/days/SevenDaysForeacst";
+import WeekForecast from "components/forecast/week/WeekForecast";
 
 const App = () => {
   const [weatherData, setWeatherData] = useState<APIResponseInterface>();
@@ -41,7 +41,7 @@ const App = () => {
               <CurrentWeather {...weatherData} />
               <TodayForecast localTime={weatherData.location.localtime} days={weatherData.forecast.forecastday} />
             </div>
-            <SevenDaysForecast days={weatherData.forecast.forecastday} localTime={weatherData.location.localtime} />
+            <WeekForecast days={weatherData.forecast.forecastday} localTime={weatherData.location.localtime} />
           </div>
           {<FavouriteCities {...{ setWeatherData, setRenderPage }} />}
         </main>
