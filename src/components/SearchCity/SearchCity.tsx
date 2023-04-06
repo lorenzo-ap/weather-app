@@ -3,6 +3,7 @@ import { CitiesProps } from "interface/Interface";
 import axios from "axios";
 import { BiSearch } from "react-icons/bi";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
 
 const SearchCity = (props: CitiesProps) => {
   const { weatherData, setWeatherData, setRenderPage } = props;
@@ -32,9 +33,14 @@ const SearchCity = (props: CitiesProps) => {
     setRenderPage((prev) => !prev);
   };
 
+  const changeTheme = () => {
+    document.body.classList.toggle("dark");
+    setRenderPage((prev) => !prev);
+  };
+
   return (
     <header className="flex justify-between items-center mb-5 gap-5">
-      <div className="flex justify-between items-center shadow-md rounded-3xl p-1 w-full bg-gradient-to-r from-[#1f2a3a] to-[#1d2736]">
+      <div className="flex justify-between items-center shadow-sm rounded-3xl p-1 w-full bg-slate-50 dark:bg-gradient-to-r dark:from-[#1f2a3a] dark:to-[#1d2736]">
         <input
           onKeyDown={onEnterKeyPress}
           onChange={onInputChange}
@@ -43,10 +49,16 @@ const SearchCity = (props: CitiesProps) => {
           placeholder="Search for cities"
           value={inputValue}
         />
-        <button onClick={searchCity} className="bg-slate-200 p-1.5 rounded-full hover:bg-slate-400 transition-colors" type="button">
+        <button
+          onClick={searchCity}
+          className="bg-slate-200 p-1.5 rounded-full hover:bg-slate-300 dark:hover:bg-slate-400 transition-colors"
+          type="button">
           <BiSearch color="black" size="22" />
         </button>
       </div>
+      <button onClick={changeTheme} type="button">
+        {document.body.className.includes("dark") ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
+      </button>
       {weatherData?.location.name && (
         <button onClick={addToFavourite} type="button">
           {localStorage.getItem(weatherData.location.name || "") ? <AiFillHeart size="32" /> : <AiOutlineHeart size="32" />}

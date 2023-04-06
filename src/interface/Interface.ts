@@ -29,11 +29,12 @@ export interface APIResponseInterface {
     temp_c: number;
     condition: ConditionInterface;
     wind_kph: number;
+    is_day: number;
   };
 }
 
 export interface TodayForecastProps {
-  days?: DayProps[];
+  days: DayProps[];
   localTime: string;
 }
 
