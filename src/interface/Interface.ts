@@ -44,6 +44,12 @@ export interface CitiesProps {
   setWeatherData: Dispatch<SetStateAction<APIResponseInterface | undefined>>;
 }
 
+export interface FavouriteCityProps {
+  city: string;
+  setFavouriteCity: React.MouseEventHandler<HTMLDivElement>;
+  removeFavouriteCity: React.MouseEventHandler<HTMLButtonElement>;
+}
+
 interface ConditionInterface {
   text: string;
   icon: string;

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { CitiesProps } from "interface/Interface";
-import { RxCross2 } from "react-icons/rx";
+import FavouriteCity from "./FavouriteCity";
 
 const FavouriteCities = (props: CitiesProps) => {
   const { setWeatherData, setRenderPage } = props;
@@ -29,22 +29,11 @@ const FavouriteCities = (props: CitiesProps) => {
     <div className="mt-5">
       <h2 className="text-left text-lg ps-1">Favourite cities</h2>
       <div className="flex my-3 mb-5 flex-wrap gap-2">
-        {!Object.keys(localStorage).length && <div className="py-1 ps-1 opacity-30 text-sm">No favourite cities</div>}
+        {!Object.keys(localStorage).length && <div className="py-1 ps-1 opacity-40 text-sm">No favourite cities</div>}
         {Object.keys(localStorage)
           .sort()
           .map((city) => (
-            <div
-              key={city}
-              onClick={setFavouriteCity}
-              className="cursor-pointer shadow-sm bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 py-0.5 ps-3 pe-1 rounded-2xl text-center flex items-center gap-2.5">
-              {city}
-              <button
-                onClick={removeFavouriteCity}
-                className="bg-slate-200 hover:bg-slate-300 dark:bg-slate-600 dark:hover:bg-slate-500 p-0.5 rounded-full"
-                type="button">
-                <RxCross2 />
-              </button>
-            </div>
+            <FavouriteCity {...{ city, setFavouriteCity, removeFavouriteCity }} />
           ))}
       </div>
       <button

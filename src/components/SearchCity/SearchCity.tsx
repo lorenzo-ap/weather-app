@@ -56,12 +56,16 @@ const SearchCity = (props: CitiesProps) => {
           <BiSearch color="black" size="22" />
         </button>
       </div>
-      <button onClick={changeTheme} type="button">
+      <button className="p-1" onClick={changeTheme} type="button">
         {document.body.className.includes("dark") ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
       </button>
       {weatherData?.location.name && (
         <button onClick={addToFavourite} type="button">
-          {localStorage.getItem(weatherData.location.name || "") ? <AiFillHeart size="32" /> : <AiOutlineHeart size="32" />}
+          {localStorage.getItem(weatherData.location.name || "") ? (
+            <AiFillHeart style={{ color: "#BD081C" }} size="32" />
+          ) : (
+            <AiOutlineHeart size="32" />
+          )}
         </button>
       )}
     </header>
