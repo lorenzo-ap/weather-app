@@ -56,7 +56,7 @@ const SearchCity = (props: CitiesProps) => {
           <BiSearch color="black" size="22" />
         </button>
       </div>
-      <button onClick={changeTheme} type="button">
+      <button className="p-1" onClick={changeTheme} type="button">
         {document.body.className.includes("dark") ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
       </button>
       {weatherData?.location.name && (
