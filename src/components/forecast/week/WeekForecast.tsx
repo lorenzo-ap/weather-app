@@ -1,12 +1,12 @@
 import { DayProps } from "interface/Interface";
 import DayForecast from "./DayForecast";
 
-interface WeekForecast {
+interface WeekForecastProps {
   days: DayProps[];
   localTime: string;
 }
 
-const WeekForecast = (props: WeekForecast) => {
+const WeekForecast = (props: WeekForecastProps) => {
   const { days, localTime } = props;
 
   return (

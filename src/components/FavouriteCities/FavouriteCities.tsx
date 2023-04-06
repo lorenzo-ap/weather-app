@@ -33,7 +33,7 @@ const FavouriteCities = (props: CitiesProps) => {
         {Object.keys(localStorage)
           .sort()
           .map((city) => (
-            <FavouriteCity {...{ city, setFavouriteCity, removeFavouriteCity }} />
+            <FavouriteCity key={city} {...{ city, setFavouriteCity, removeFavouriteCity }} />
           ))}
       </div>
       <button
