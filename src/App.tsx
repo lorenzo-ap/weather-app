@@ -17,7 +17,10 @@ const App = () => {
         .get(
           `https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${position.coords.latitude},${position.coords.longitude}&days=7`
         )
-        .then((response) => setWeatherData(response.data))
+        .then((response) => {
+          setWeatherData(response.data);
+          !response.data.current.is_day && document.body.classList.add("dark");
+        })
         .catch(() => setWeatherData(undefined));
     };
 
@@ -29,7 +32,7 @@ const App = () => {
   }, []);
 
   return (
-    <div className="py-5 px-5 xs:px-12 sm:px-24 md:px-5 shadow-2xl max-w-3xl w-full min-h-screen md:min-h-fit md:rounded-3xl md:w-auto bg-[#0b131e]">
+    <div className="text-[#242c39] dark:text-[#dde0e5] py-5 px-5 xs:px-12 sm:px-24 md:px-5 shadow-2xl max-w-[52rem] w-full min-h-screen md:min-h-fit md:rounded-3xl md:w-auto bg-[#ecf0f1] dark:bg-[#0b131e] dark:bg-none">
       <SearchCity {...{ weatherData, setWeatherData, setRenderPage }} />
       {weatherData ? (
         <main>
@@ -38,9 +41,9 @@ const App = () => {
               <CurrentWeather {...weatherData} />
               <TodayForecast localTime={weatherData.location.localtime} days={weatherData.forecast.forecastday} />
             </div>
-            <SevenDaysForecast days={weatherData.forecast.forecastday} />
+            <SevenDaysForecast days={weatherData.forecast.forecastday} localTime={weatherData.location.localtime} />
           </div>
-          {Object.keys(localStorage).length !== 0 && <FavouriteCities {...{ setWeatherData, setRenderPage }} />}
+          {<FavouriteCities {...{ setWeatherData, setRenderPage }} />}
         </main>
       ) : (
         <div className="text-center">The city was not found</div>
