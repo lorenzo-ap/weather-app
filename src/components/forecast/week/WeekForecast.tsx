@@ -1,12 +1,12 @@
 import { DayProps } from "interface/Interface";
 import DayForecast from "./DayForecast";
 
-interface SevenDaysForecastProps {
+interface WeekForecast {
   days: DayProps[];
   localTime: string;
 }
 
-const SevenDaysForecast = (props: SevenDaysForecastProps) => {
+const WeekForecast = (props: WeekForecast) => {
   const { days, localTime } = props;
 
   return (
@@ -23,4 +23,4 @@ const SevenDaysForecast = (props: SevenDaysForecastProps) => {
   );
 };
 
-export default SevenDaysForecast;
+export default WeekForecast;

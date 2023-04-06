@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useDraggable } from "react-use-draggable-scroll";
 import moment from "moment";
 import { TodayForecastProps } from "interface/Interface";
-import TodayForecastHour from "./TodayForecastHour";
+import TodayForecastHour from "./HourForecast";
 
 const TodayForecast = (props: TodayForecastProps) => {
   const ref = useRef<any>();

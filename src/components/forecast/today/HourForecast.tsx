@@ -1,7 +1,7 @@
-import { TodayForecastHourProps } from "interface/Interface";
+import { HourForecastProps } from "interface/Interface";
 import moment from "moment";
 
-const CarouselHour = (props: TodayForecastHourProps) => {
+const HourForecast = (props: HourForecastProps) => {
   const { time, temp_c, condition, localTime } = props;
 
   return (
@@ -15,4 +15,4 @@ const CarouselHour = (props: TodayForecastHourProps) => {
   );
 };
 
-export default CarouselHour;
+export default HourForecast;

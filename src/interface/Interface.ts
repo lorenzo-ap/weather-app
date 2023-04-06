@@ -1,22 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
 
-export interface DayProps {
-  date: string;
-  hour: TodayForecastHourProps[];
-  day: {
-    avgtemp_c: number;
-    avghumidity: number;
-    condition: ConditionInterface;
-  };
-}
-
-export interface TodayForecastHourProps {
-  time: string;
-  temp_c: number;
-  condition: ConditionInterface;
-  localTime: string;
-}
-
 export interface APIResponseInterface {
   forecast: {
     forecastday: DayProps[];
@@ -33,8 +16,25 @@ export interface APIResponseInterface {
   };
 }
 
+export interface DayProps {
+  date: string;
+  hour: HourForecastProps[];
+  day: {
+    avgtemp_c: number;
+    avghumidity: number;
+    condition: ConditionInterface;
+  };
+}
+
 export interface TodayForecastProps {
   days: DayProps[];
+  localTime: string;
+}
+
+export interface HourForecastProps {
+  time: string;
+  temp_c: number;
+  condition: ConditionInterface;
   localTime: string;
 }
 
