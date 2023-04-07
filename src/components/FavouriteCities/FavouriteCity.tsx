@@ -2,11 +2,11 @@ import { FavouriteCityProps } from "interface/Interface";
 import { RxCross2 } from "react-icons/rx";
 
 const FavouriteCity = (props: FavouriteCityProps) => {
-  const { city, setFavouriteCity, removeFavouriteCity } = props;
+  const { city, setCurrentCity, removeFavouriteCity } = props;
 
   return (
     <div
-      onClick={setFavouriteCity}
+      onClick={setCurrentCity}
       className="cursor-pointer shadow-sm bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 py-0.5 ps-3 pe-1 rounded-2xl text-center flex items-center gap-2.5">
       {city}
       <button

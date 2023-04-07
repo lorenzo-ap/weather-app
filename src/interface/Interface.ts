@@ -26,7 +26,7 @@ export interface DayProps {
   };
 }
 
-export interface TodayForecastProps {
+export interface DayForecastProps {
   days: DayProps[];
   localTime: string;
 }
@@ -46,7 +46,7 @@ export interface CitiesProps {
 
 export interface FavouriteCityProps {
   city: string;
-  setFavouriteCity: React.MouseEventHandler<HTMLDivElement>;
+  setCurrentCity: React.MouseEventHandler<HTMLDivElement>;
   removeFavouriteCity: React.MouseEventHandler<HTMLButtonElement>;
 }
 

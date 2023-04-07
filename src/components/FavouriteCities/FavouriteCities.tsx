@@ -5,7 +5,7 @@ import FavouriteCity from "./FavouriteCity";
 const FavouriteCities = (props: CitiesProps) => {
   const { setWeatherData, setRenderPage } = props;
 
-  const setFavouriteCity = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const setCurrentCity = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
@@ -29,15 +29,16 @@ const FavouriteCities = (props: CitiesProps) => {
     <div className="mt-5">
       <h2 className="text-left text-lg ps-1">Favourite cities</h2>
       <div className="flex my-3 mb-5 flex-wrap gap-2">
-        {!Object.keys(localStorage).length && <div className="py-1 ps-1 opacity-40 text-sm">No favourite cities</div>}
-        {Object.keys(localStorage)
-          .sort()
-          .map((city) => (
-            <FavouriteCity key={city} {...{ city, setFavouriteCity, removeFavouriteCity }} />
-          ))}
+        {localStorage.length ? (
+          Object.keys(localStorage)
+            .sort()
+            .map((city) => <FavouriteCity key={city} {...{ city, setCurrentCity, removeFavouriteCity }} />)
+        ) : (
+          <div className="py-1 ps-1 opacity-40 text-sm">No favourite cities</div>
+        )}
       </div>
       <button
-        disabled={!Object.keys(localStorage).length}
+        disabled={!localStorage.length}
         onClick={clearFavouriteCities}
         className="shadow-sm cursor-pointer disabled:opacity-50 dark:disabled:hover:bg-slate-800 disabled:cursor-no-drop bg-white hover:bg-slate-50 disabled:hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 py-1.5 rounded-2xl w-full text-center"
         type="button">

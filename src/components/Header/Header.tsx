@@ -20,7 +20,7 @@ const Header = (props: CitiesProps) => {
   return (
     <header className="flex justify-between items-center mb-5 gap-5">
       <SearchCities {...{ setWeatherData }} />
-      <button className="p-1" onClick={changeTheme} type="button">
+      <button onClick={changeTheme} className="p-1" type="button">
         {document.body.className.includes("dark") ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
       </button>
       {weatherData?.location.name && (
