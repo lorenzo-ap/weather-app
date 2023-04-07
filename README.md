@@ -4,7 +4,7 @@ This Weather App is a web application built with React and TypeScript.
 <br>
 It allows users to view weather forecasts for their current location and search for weather forecasts for different cities.
 
-![Application usage](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODdkMzllN2E4NjFiYmM2YjhhZjg0YTY5NGM3N2NkYjExOTA2MWRiNSZjdD1n/ob8CXdmw81rgNruJKu/giphy.gif)
+![Application usage](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTk1N2UzNzQ3ZWI1OTc1YWMyODg0MzIyMDYyZmQxMWQ3NjI2NDI0MiZjdD1n/woo8zxAVjXyLGNsvxO/giphy.gif)
 
 To run the project:
 
