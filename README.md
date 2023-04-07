@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Weather App is a web application built with React and TypeScript.
+<br>
+It allows users to view weather forecasts for their current location and search for weather forecasts for different cities.
 
-## Available Scripts
+![Application usage](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExODdkMzllN2E4NjFiYmM2YjhhZjg0YTY5NGM3N2NkYjExOTA2MWRiNSZjdD1n/ob8CXdmw81rgNruJKu/giphy.gif)
 
-In the project directory, you can run:
+To run the project:
 
-### `npm start`
+1. Clone this repo
+2. Run `npm install`
+3. Run `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Packages used:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Axios**: This package handles HTTP requests to the API and processes the received data, simplifying the process of making API requests.
+- **Moment**: It provides an easy-to-use API for manipulating and formatting dates and times, making it easier to display date and time information.
+- **Tailwind**: Using pre-defined utility classes, this package styles the application and is a popular choice for styling React applications due to its simplicity and flexibility.
+- **Sass**: This package preprocesses the CSS for the application, providing a more powerful and flexible way of writing CSS that's easier to manage and maintain.
+- **React-icons**: Providing a set of pre-defined icons, this package can be used in the application to enhance its user interface.
+- **React-use-draggable-scroll**: This package implements a draggable component that allows users to scroll through the forecast for the next 24 hours, enhancing the user experience of the application.
 
-### `npm test`
+## Features:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- The application provides a detailed weather forecast for the user's current location over the next 24 hours.
+- Users can check the weather forecast for the upcoming week with the application's 7-day forecast feature.
+- Favorite cities: Users can add and remove cities from their list of favorite cities. The favorite cities are stored in the local storage, so they remain even if the user closes and reopens the application.
+- Search for different cities: Users can search for the weather forecast for different cities by entering the city name in the search bar.
+- Light/Dark themes: The application supports both light and dark themes. The theme is automatically selected based on the user's time of day.
 
-### `npm run build`
+## Additional features:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Typed components**: The application uses TypeScript to type the components, making it easier to catch errors and improve maintainability.
+- **Semantic markup**: The application uses semantic HTML tags to improve accessibility and SEO.
+- **Responsive design**: The application is fully responsive and adapts to different screen sizes.
+- **Weather images**: The application displays different images based on the current weather, temperature and humidity. For example, if the temperature is low, the weather image shows an empty thermometer, and if the humidity is high, the weather image shows a full drop.
