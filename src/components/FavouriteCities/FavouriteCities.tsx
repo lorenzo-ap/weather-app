@@ -5,7 +5,7 @@ import FavouriteCity from "./FavouriteCity";
 const FavouriteCities = (props: CitiesProps) => {
   const { setWeatherData, setRenderPage } = props;
 
-  const setCurrentCity = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const setCurrentCity = (event: React.MouseEvent<HTMLDivElement>) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
