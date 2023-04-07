@@ -40,7 +40,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
 
     value != "" && value.trim().length > 0
       ? axios
-          .get(`http://api.weatherapi.com/v1/search.json?key=a35c4486065e4b6d966171930230304&q=${value}`)
+          .get(`https://api.weatherapi.com/v1/search.json?key=a35c4486065e4b6d966171930230304&q=${value}`)
           .then((response) => {
             setAPIData(response.data);
           })
