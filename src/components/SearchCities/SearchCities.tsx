@@ -24,7 +24,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     const uniqueCities = new Set();
 
     const filteredCities = APIdata.filter((city: City) => {
-      if (!uniqueCities.has(city.name) && /^[a-zA-Z() ]+$/.test(city.name)) {
+      if (!uniqueCities.has(city.name) && /^[a-zA-Z() \-]+$/.test(city.name)) {
         uniqueCities.add(city.name);
         return true;
       }
