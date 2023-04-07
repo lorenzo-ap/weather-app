@@ -1,39 +1,87 @@
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { APIResponseInterface } from "interface/Interface";
-import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 
 interface SearchCitiesProps {
   setWeatherData: React.Dispatch<React.SetStateAction<APIResponseInterface | undefined>>;
 }
 
+interface Suggestion {
+  name: string;
+}
+
+interface City {
+  name: string;
+}
+
 const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
   const [inputValue, setInputValue] = useState("");
+  const [suggestedCities, setSuggestedCities] = useState<Suggestion[]>([]);
+  const [APIdata, setAPIData] = useState([]);
 
-  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue(event.target.value);
+  useEffect(() => {
+    const uniqueCities = new Set();
+
+    const filteredCities = APIdata.filter((city: City) => {
+      if (!uniqueCities.has(city.name) && /^[a-zA-Z() ]+$/.test(city.name)) {
+        uniqueCities.add(city.name);
+        return true;
+      }
+      return false;
+    }).map((city: City) => ({ name: city.name }));
+
+    setSuggestedCities(filteredCities);
+  }, [APIdata]);
+
+  const handleInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setInputValue(value);
+
+    value != "" && value.trim().length > 0
+      ? axios
+          .get(`http://api.weatherapi.com/v1/search.json?key=a35c4486065e4b6d966171930230304&q=${value}`)
+          .then((response) => {
+            setAPIData(response.data);
+          })
+          .catch(() => setAPIData([]))
+      : setAPIData([]);
   };
 
   const searchCity = () => {
     inputValue !== "" &&
+      inputValue.trim().length > 0 &&
       axios
         .get(`https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${inputValue}&days=7`)
         .then((response) => setWeatherData(response.data))
         .catch(() => setWeatherData(undefined));
 
     setInputValue("");
+    setSuggestedCities([]);
   };
 
   const onEnterKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
     event.key === "Enter" && searchCity();
   };
 
+  const setCurrentSuggestionCity = (event: React.MouseEvent<HTMLDivElement>) => {
+    const city = (event.target as HTMLDivElement).textContent;
+
+    axios
+      .get(`https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${city}&days=7`)
+      .then((response) => setWeatherData(response.data))
+      .catch(() => setWeatherData(undefined));
+
+    setInputValue("");
+    setSuggestedCities([]);
+  };
+
   return (
-    <div className="flex justify-between items-center shadow-sm rounded-3xl p-1 w-full bg-slate-50 dark:bg-gradient-to-r dark:from-[#1f2a3a] dark:to-[#1d2736]">
+    <div className="relative flex justify-between items-center shadow-sm rounded-3xl p-1 w-full bg-slate-50 dark:bg-gradient-to-r dark:from-[#1f2a3a] dark:to-[#1d2736]">
       <input
         onKeyDown={onEnterKeyPress}
-        onChange={onInputChange}
-        className="outline-none ps-3 bg-transparent h-8 w-full"
+        onChange={handleInputChange}
+        className="outline-none ps-3 bg-transparent h-8 w-full z-10"
         type="text"
         placeholder="Search for cities"
         value={inputValue}
@@ -44,6 +92,17 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
         type="button">
         <BiSearch color="black" size="22" />
       </button>
+      {suggestedCities.length > 0 && (
+        <div className="absolute top-[50px] left-0 w-full backdrop-blur-md rounded-3xl shadow-xl">
+          <div className="w-full bg-[rgb(255,255,255,.65)] dark:bg-[rgb(31,42,58,.75)] rounded-3xl py-2 px-4">
+            {suggestedCities.map((suggestion: City) => (
+              <div onClick={setCurrentSuggestionCity} key={suggestion.name} className="cursor-pointer py-0.5 hover:opacity-60 transition-opacity">
+                {suggestion.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
