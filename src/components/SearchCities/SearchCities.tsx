@@ -94,7 +94,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
       </button>
       {suggestedCities.length > 0 && (
         <div className="absolute top-[50px] left-0 w-full backdrop-blur-md rounded-3xl shadow-xl">
-          <div className="w-full bg-[rgb(255,255,255,.65)] dark:bg-[rgb(31,42,58,.75)] rounded-3xl py-2 px-4">
+          <div className="w-full bg-[rgb(248,250,252,.65)] dark:bg-[rgb(31,42,58,.75)] rounded-3xl py-2 px-4">
             {suggestedCities.map((suggestion: City) => (
               <div onClick={setCurrentSuggestionCity} key={suggestion.name} className="cursor-pointer py-0.5 hover:opacity-60 transition-opacity">
                 {suggestion.name}
