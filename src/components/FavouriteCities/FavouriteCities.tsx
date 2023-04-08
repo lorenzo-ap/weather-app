@@ -40,7 +40,7 @@ const FavouriteCities = (props: CitiesProps) => {
       <button
         disabled={!localStorage.length}
         onClick={clearFavouriteCities}
-        className="shadow-sm cursor-pointer disabled:opacity-50 dark:disabled:hover:bg-slate-800 disabled:cursor-no-drop bg-white hover:bg-slate-50 disabled:hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 py-1.5 rounded-2xl w-full text-center"
+        className="shadow-sm cursor-pointer disabled:opacity-50 dark:disabled:hover:bg-slate-800 disabled:cursor-no-drop bg-white hover:bg-slate-50 disabled:hover:bg-white dark:bg-slate-800 dark:hover:bg-slate-700 py-1.5 rounded-2xl w-full text-center"
         type="button">
         Clear favourites list
       </button>
