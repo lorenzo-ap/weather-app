@@ -24,6 +24,10 @@ export interface DayProps {
     avghumidity: number;
     condition: ConditionInterface;
   };
+  astro: {
+    sunrise: string;
+    sunset: string;
+  };
 }
 
 export interface DayForecastProps {
