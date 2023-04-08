@@ -34,7 +34,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     setSuggestedCities(filteredCities);
   }, [APIdata]);
 
-  const handleInputChange = async (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setInputValue(value);
 
@@ -64,7 +64,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     event.key === "Enter" && searchCity();
   };
 
-  const setCurrentSuggestedCity = (event: React.MouseEvent<HTMLDivElement>) => {
+  const setCurrentSuggestedCity: React.MouseEventHandler<HTMLDivElement> = (event) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
