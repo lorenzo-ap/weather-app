@@ -24,7 +24,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     const uniqueCities = new Set();
 
     const filteredCities = APIdata.filter((city: City) => {
-      if (!uniqueCities.has(city.name) && /^[a-zA-Z() \-]+$/.test(city.name)) {
+      if (!uniqueCities.has(city.name) && /^[a-zA-Z() -]+$/.test(city.name)) {
         uniqueCities.add(city.name);
         return true;
       }
@@ -38,7 +38,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     const value = event.target.value;
     setInputValue(value);
 
-    value != "" && value.trim().length > 0
+    value !== "" && value.trim().length > 0
       ? axios
           .get(`https://api.weatherapi.com/v1/search.json?key=a35c4486065e4b6d966171930230304&q=${value}`)
           .then((response) => {

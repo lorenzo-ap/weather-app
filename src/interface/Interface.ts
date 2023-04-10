@@ -30,16 +30,16 @@ export interface DayProps {
   };
 }
 
-export interface DayForecastProps {
-  days: DayProps[];
-  localTime: string;
-}
-
 export interface HourForecastProps {
   time: string;
   temp_c: number;
   condition: ConditionInterface;
-  localTime: string;
+  localtime: string;
+}
+
+export interface DayForecastProps {
+  forecastday: DayProps[];
+  localtime: string;
 }
 
 export interface CitiesProps {

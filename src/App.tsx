@@ -40,9 +40,9 @@ const App = () => {
             <div className="flex gap-5 flex-col md:flex-row">
               <div className="max-w-full md:max-w-sm">
                 <CurrentWeather {...weatherData} />
-                <TodayForecast days={weatherData.forecast.forecastday} localTime={weatherData.location.localtime} />
+                <TodayForecast forecastday={weatherData.forecast.forecastday} localtime={weatherData.location.localtime} />
               </div>
-              <WeekForecast days={weatherData.forecast.forecastday} localTime={weatherData.location.localtime} />
+              <WeekForecast forecastday={weatherData.forecast.forecastday} localtime={weatherData.location.localtime} />
             </div>
             {<FavouriteCities {...{ setWeatherData, setRenderPage }} />}
           </>

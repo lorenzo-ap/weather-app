@@ -4,11 +4,11 @@ import { BsDropletFill, BsDropletHalf, BsDroplet, BsThermometerHalf, BsThermomet
 
 interface DayForecastProps {
   day: DayProps;
-  localTime: string;
+  localtime: string;
 }
 
 const DayForecast = (props: DayForecastProps) => {
-  const { day, localTime } = props;
+  const { day, localtime } = props;
 
   const checkHumidity = (humidity: number) => {
     if (humidity >= 70) {
@@ -33,7 +33,7 @@ const DayForecast = (props: DayForecastProps) => {
   return (
     <div className="flex justify-between items-center gap-6">
       <div className="w-20">
-        {moment(new Date(day.date)).format(moment(new Date(day.date)).isSame(moment(new Date(localTime)), "day") ? "[Today]" : "dddd")}
+        {moment(new Date(day.date)).format(moment(new Date(day.date)).isSame(moment(new Date(localtime)), "day") ? "[Today]" : "dddd")}
       </div>
       <img className="w-10" src={day.day.condition.icon} alt={day.day.condition.text} />
       <div className="flex justify-between w-32">
