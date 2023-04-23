@@ -40,7 +40,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
 
     value !== "" && value.trim().length > 0
       ? axios
-          .get(`https://api.weatherapi.com/v1/search.json?key=a35c4486065e4b6d966171930230304&q=${value}`)
+          .get(`https://api.weatherapi.com/v1/search.json?key=736eace6f7bf4a3ba0c111443232304&q=${value}`)
           .then((response) => {
             setAPIData(response.data);
           })
@@ -52,7 +52,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     inputValue !== "" &&
       inputValue.trim().length > 0 &&
       axios
-        .get(`https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${inputValue}&days=7`)
+        .get(`https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${inputValue}&days=7`)
         .then((response) => setWeatherData(response.data))
         .catch(() => setWeatherData(undefined));
 
@@ -68,7 +68,7 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
-      .get(`https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${city}&days=7`)
+      .get(`https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${city}&days=7`)
       .then((response) => setWeatherData(response.data))
       .catch(() => setWeatherData(undefined));
 

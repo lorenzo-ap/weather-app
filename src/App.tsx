@@ -15,7 +15,7 @@ const App = () => {
     const showPosition = (position: GeolocationPosition) => {
       axios
         .get(
-          `https://api.weatherapi.com/v1/forecast.json?key=a35c4486065e4b6d966171930230304&q=${position.coords.latitude},${position.coords.longitude}&days=7`
+          `https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${position.coords.latitude},${position.coords.longitude}&days=7`
         )
         .then((response) => {
           setWeatherData(response.data);
