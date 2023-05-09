@@ -1,6 +1,6 @@
-import axios from "axios";
-import { CitiesProps } from "interface/Interface";
-import FavouriteCity from "./FavouriteCity";
+import axios from 'axios';
+import { CitiesProps } from 'interface/Interface';
+import FavouriteCity from './FavouriteCity';
 
 const FavouriteCities = (props: CitiesProps) => {
   const { setWeatherData, setRenderPage } = props;
@@ -9,14 +9,14 @@ const FavouriteCities = (props: CitiesProps) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
-      .get(`https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${city}&days=7`)
+      .get(`https://api.weatherapi.com/v1/forecast.json?key=231b8f0b79954d95bc494854230905&q=${city}&days=7`)
       .then((response) => setWeatherData(response.data))
       .catch(() => setWeatherData(undefined));
   };
 
   const removeFavouriteCity = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.stopPropagation();
-    localStorage.removeItem(event.currentTarget.parentElement?.textContent || "");
+    localStorage.removeItem(event.currentTarget.parentElement?.textContent || '');
     setRenderPage((prev) => !prev);
   };
 

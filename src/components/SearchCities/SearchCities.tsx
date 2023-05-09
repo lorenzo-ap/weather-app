@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import { APIResponseInterface } from "interface/Interface";
-import { BiSearch } from "react-icons/bi";
+import axios from 'axios';
+import { APIResponseInterface } from 'interface/Interface';
+import { useEffect, useState } from 'react';
+import { BiSearch } from 'react-icons/bi';
 
 interface SearchCitiesProps {
   setWeatherData: React.Dispatch<React.SetStateAction<APIResponseInterface | undefined>>;
@@ -16,7 +16,7 @@ interface City {
 }
 
 const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [suggestedCities, setSuggestedCities] = useState<Suggestion[]>([]);
   const [APIdata, setAPIData] = useState([]);
 
@@ -38,9 +38,9 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
     const value = event.target.value;
     setInputValue(value);
 
-    value !== "" && value.trim().length > 0
+    value !== '' && value.trim().length > 0
       ? axios
-          .get(`https://api.weatherapi.com/v1/search.json?key=736eace6f7bf4a3ba0c111443232304&q=${value}`)
+          .get(`https://api.weatherapi.com/v1/search.json?key=231b8f0b79954d95bc494854230905&q=${value}`)
           .then((response) => {
             setAPIData(response.data);
           })
@@ -49,30 +49,30 @@ const SearchCities = ({ setWeatherData }: SearchCitiesProps) => {
   };
 
   const searchCity = () => {
-    inputValue !== "" &&
+    inputValue !== '' &&
       inputValue.trim().length > 0 &&
       axios
-        .get(`https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${inputValue}&days=7`)
+        .get(`https://api.weatherapi.com/v1/forecast.json?key=231b8f0b79954d95bc494854230905&q=${inputValue}&days=7`)
         .then((response) => setWeatherData(response.data))
         .catch(() => setWeatherData(undefined));
 
-    setInputValue("");
+    setInputValue('');
     setSuggestedCities([]);
   };
 
   const onEnterKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    event.key === "Enter" && searchCity();
+    event.key === 'Enter' && searchCity();
   };
 
   const setCurrentSuggestedCity: React.MouseEventHandler<HTMLDivElement> = (event) => {
     const city = (event.target as HTMLDivElement).textContent;
 
     axios
-      .get(`https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${city}&days=7`)
+      .get(`https://api.weatherapi.com/v1/forecast.json?key=231b8f0b79954d95bc494854230905&q=${city}&days=7`)
       .then((response) => setWeatherData(response.data))
       .catch(() => setWeatherData(undefined));
 
-    setInputValue("");
+    setInputValue('');
     setSuggestedCities([]);
   };
 

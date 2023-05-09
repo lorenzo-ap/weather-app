@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
-import { APIResponseInterface } from "interface/Interface";
-import axios from "axios";
-import Header from "components/Header/Header";
-import CurrentWeather from "components/CurrentWeather/CurrentWeather";
-import FavouriteCities from "components/FavouriteCities/FavouriteCities";
-import TodayForecast from "components/forecast/today/TodayForecast";
-import WeekForecast from "components/forecast/week/WeekForecast";
+import axios from 'axios';
+import CurrentWeather from 'components/CurrentWeather/CurrentWeather';
+import FavouriteCities from 'components/FavouriteCities/FavouriteCities';
+import TodayForecast from 'components/forecast/today/TodayForecast';
+import WeekForecast from 'components/forecast/week/WeekForecast';
+import Header from 'components/Header/Header';
+import { APIResponseInterface } from 'interface/Interface';
+import { useEffect, useState } from 'react';
 
 const App = () => {
   const [weatherData, setWeatherData] = useState<APIResponseInterface>();
@@ -15,11 +15,11 @@ const App = () => {
     const showPosition = (position: GeolocationPosition) => {
       axios
         .get(
-          `https://api.weatherapi.com/v1/forecast.json?key=736eace6f7bf4a3ba0c111443232304&q=${position.coords.latitude},${position.coords.longitude}&days=7`
+          `https://api.weatherapi.com/v1/forecast.json?key=231b8f0b79954d95bc494854230905&q=${position.coords.latitude},${position.coords.longitude}&days=7`
         )
         .then((response) => {
           setWeatherData(response.data);
-          !response.data.current.is_day && document.body.classList.add("dark");
+          !response.data.current.is_day && document.body.classList.add('dark');
         })
         .catch(() => setWeatherData(undefined));
     };
@@ -27,7 +27,7 @@ const App = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition);
     } else {
-      console.log("Geolocation is not supported.");
+      console.log('Geolocation is not supported.');
     }
   }, []);
 

@@ -1,19 +1,19 @@
-import { CitiesProps } from "interface/Interface";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
-import { BsMoonFill, BsFillSunFill } from "react-icons/bs";
-import SearchCities from "components/SearchCities/SearchCities";
+import SearchCities from 'components/SearchCities/SearchCities';
+import { CitiesProps } from 'interface/Interface';
+import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
+import { BsFillSunFill, BsMoonFill } from 'react-icons/bs';
 
 const Header = (props: CitiesProps) => {
   const { weatherData, setWeatherData, setRenderPage } = props;
 
   const addToFavourite = () => {
-    const cityName = weatherData?.location.name || "";
-    localStorage.getItem(cityName) ? localStorage.removeItem(cityName) : localStorage.setItem(cityName, "true");
+    const cityName = weatherData?.location.name || '';
+    localStorage.getItem(cityName) ? localStorage.removeItem(cityName) : localStorage.setItem(cityName, 'true');
     setRenderPage((prev) => !prev);
   };
 
   const changeTheme = () => {
-    document.body.classList.toggle("dark");
+    document.body.classList.toggle('dark');
     setRenderPage((prev) => !prev);
   };
 
@@ -21,11 +21,11 @@ const Header = (props: CitiesProps) => {
     <header className="flex justify-between items-center mb-5 gap-5">
       <SearchCities {...{ setWeatherData }} />
       <button onClick={changeTheme} className="p-1" type="button">
-        {document.body.className.includes("dark") ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
+        {document.body.className.includes('dark') ? <BsFillSunFill size="25" /> : <BsMoonFill size="25" />}
       </button>
       {weatherData?.location.name && (
         <button onClick={addToFavourite} type="button">
-          {localStorage.getItem(weatherData.location.name || "") ? <AiFillHeart color="#BD081C" size="32" /> : <AiOutlineHeart size="32" />}
+          {localStorage.getItem(weatherData.location.name || '') ? <AiFillHeart color="#BD081C" size="32" /> : <AiOutlineHeart size="32" />}
         </button>
       )}
     </header>
