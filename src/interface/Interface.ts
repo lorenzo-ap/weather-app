@@ -1,60 +1,60 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from 'react';
 
 export interface APIResponseInterface {
-  forecast: {
-    forecastday: DayProps[];
-  };
-  location: {
-    name: string;
-    localtime: string;
-  };
-  current: {
-    temp_c: number;
-    condition: ConditionInterface;
-    wind_kph: number;
-    is_day: number;
-  };
+    forecast: {
+        forecastday: DayProps[];
+    };
+    location: {
+        name: string;
+        localtime: string;
+    };
+    current: {
+        temp_c: number;
+        condition: ConditionInterface;
+        wind_kph: number;
+        is_day: number;
+    };
 }
 
 export interface DayProps {
-  date: string;
-  hour: HourForecastProps[];
-  day: {
-    avgtemp_c: number;
-    avghumidity: number;
-    condition: ConditionInterface;
-  };
-  astro: {
-    sunrise: string;
-    sunset: string;
-  };
+    date: string;
+    hour: HourForecastProps[];
+    day: {
+        avgtemp_c: number;
+        avghumidity: number;
+        condition: ConditionInterface;
+    };
+    astro: {
+        sunrise: string;
+        sunset: string;
+    };
 }
 
 export interface HourForecastProps {
-  time: string;
-  temp_c: number;
-  condition: ConditionInterface;
-  localtime: string;
+    time: string;
+    temp_c: number;
+    condition: ConditionInterface;
+    localTime: string;
 }
 
 export interface DayForecastProps {
-  forecastday: DayProps[];
-  localtime: string;
+    forecastDay: DayProps[];
+    localTime: string;
 }
 
 export interface CitiesProps {
-  weatherData?: APIResponseInterface;
-  setRenderPage: Dispatch<React.SetStateAction<boolean>>;
-  setWeatherData: Dispatch<SetStateAction<APIResponseInterface | undefined>>;
+    weatherData?: APIResponseInterface;
+    setRenderPage: Dispatch<React.SetStateAction<boolean>>;
+    setWeatherData: Dispatch<SetStateAction<APIResponseInterface | undefined>>;
 }
 
-export interface FavouriteCityProps {
-  city: string;
-  setCurrentCity: React.MouseEventHandler<HTMLDivElement>;
-  removeFavouriteCity: React.MouseEventHandler<HTMLButtonElement>;
+export interface FavoriteCityProps {
+    city: string;
+    setCurrentCity: React.MouseEventHandler<HTMLDivElement>;
+    removeFavoriteCity: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 interface ConditionInterface {
-  text: string;
-  icon: string;
+    text: string;
+    icon: string;
 }
